@@ -1,0 +1,48 @@
+# Database Tables for Blog Post Project with Django
+
+## User
+- id (Primary Key)
+- username (Unique)
+- email (Unique)
+- password
+- first_name
+- last_name
+- date_joined
+- last_login
+
+## Profile
+- id (Primary Key)
+- user (Foreign Key to User)
+- bio
+- profile_picture
+- website
+- location
+- birth_date
+
+## Post
+- id (Primary Key)
+- author (Foreign Key to User)
+- title
+- content
+- created_at
+- updated_at
+- published_date
+- status (Draft/Published)
+
+## Comment
+- id (Primary Key)
+- post (Foreign Key to Post)
+- author (Foreign Key to User)
+- content
+- created_at
+- approved
+
+## Category
+- id (Primary Key)
+- name (Unique)
+- description
+
+## PostCategory
+- id (Primary Key)
+- post (Foreign Key to Post)
+- category (Foreign Key to Category)
