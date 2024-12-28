@@ -1,0 +1,33 @@
+<!-- filepath: /Users/bobomin/Desktop/Django/blog_post/templates/blog/test.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Information</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h4>Session Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Session Key:</strong> {{ session_key }}</p>
+                        <p><strong>User ID:</strong> {{ user_id }}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        {# <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a> #}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

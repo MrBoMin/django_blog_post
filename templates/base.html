@@ -28,11 +28,17 @@
                 </li>
             </ul>
         </div>
-
+        {% if user.is_authenticated %}
+        <div class="ml-auto d-flex">
+            <span class="navbar-text mr-2">Hello, {{ user.username }}</span>
+            <a class="btn btn-outline-secondary" href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
         <div class="ml-auto d-flex">
             <a class="btn btn-outline-primary mr-2" href="{% url 'register' %}">Sign Up</a>
-            <a class="btn btn-outline-secondary" href="#">Login</a>
+            <a class="btn btn-outline-secondary" href="{% url 'login' %}">Login</a>
         </div>
+        {% endif %}
     </nav>
 
     <div class="container-fluid" style="min-height: 100vh;">

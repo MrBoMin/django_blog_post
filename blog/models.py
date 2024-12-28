@@ -11,15 +11,21 @@ class Profile(models.Model):
 
 
 class Post(models.Model):
+
+    STATUS_CHOICES = [
+        ('draft','Drafe'),
+        ('published', 'Published')
+    ]
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     content= models.TextField() 
     created_at = models.DateTimeField(auto_now_add=True)
-    edited_at = models.DateTimeField()
+    edited_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
-    image = models.ImageField(upload_to='post_images/')
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
+    status = models.CharField(max_length=10,choices=STATUS_CHOICES, default='draft')
     def __str__(self):
         return self.title
 
